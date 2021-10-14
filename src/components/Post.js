@@ -5,7 +5,7 @@ import axios from "axios"
 import {format} from "timeago.js"
 import {Link} from "react-router-dom"
 import { AuthContext } from '../context/AuthContext'
-import { Image } from 'cloudinary-react';
+
 
 const Post = (post) => {
     // const [posts, setPosts] = useState([])
@@ -39,8 +39,6 @@ const Post = (post) => {
     useEffect(()=>{
         setIsLiked(post.likes.includes(currentUser._id))
     },[post.likes, currentUser._id])
-    
-    // const [postOptions, setPostOptions] = useState(false);
     
     const handleLike = ()=>{
         try {
@@ -104,16 +102,6 @@ const Post = (post) => {
                     {!isEdit && <span className="text-post">{post.desc ? post.desc : "" } </span>}
                     {isEdit && <input ref={desc} value={descrip} onChange={(e)=>setDescrip(e.target.value)}  />}
                     {post.img && <img src={post.img} alt="post-img" />}
-                    {imageIds &&
-                    imageIds.map((imageId, index) => (
-                        <Image
-                            key={index}
-                            cloudName={process.env.REACT_APP_CLOUDINARY_NAME}
-                            publicId={imageId}
-                            width="300"
-                            crop="scale"
-                        />
-                    ))}
 
                 </Center>
                 <Bottom>
@@ -179,7 +167,6 @@ const BottomRight = styled.div`
     }
 `
 const TopRight = styled.div`
-    /* flex: 3; */
     margin-right: 10px;
     margin-left: 50px;
     display: flex;
