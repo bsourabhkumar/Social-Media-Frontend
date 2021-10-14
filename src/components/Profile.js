@@ -9,7 +9,6 @@ const Profile = () => {
     const email = useRef();
     const password = useRef();
     const { isFetching, dispatch } = useContext(AuthContext);
-    
     const [testemail, setEmail] = useState("bsourabh@gmail.com");
     const [testpassword, setPassword] = useState("1234556");
     const [test, setTest] = useState(false);
@@ -25,14 +24,7 @@ const Profile = () => {
             password: password.current.value}, dispatch )
         }
    }
-
-//    const handleTest = (e) => {
-//         e.preventDefault();
-//         setEmail("bsourabh@gmail.com");
-//         setPassword("1234556");
-//    }
-
-        
+    
     return (
         <Login>
             <Wrapper>

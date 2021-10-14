@@ -2,7 +2,6 @@ import React, {useState, useEffect, useContext} from 'react'
 import styled from 'styled-components'
 import Share from './Share'
 import Post from './Post'
-// import { Posts } from '../dummyData'
 import axios from "axios"
 import { AuthContext } from '../context/AuthContext'
 // import { PostContext } from '../context/PostContext'

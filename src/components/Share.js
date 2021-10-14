@@ -55,7 +55,7 @@ const Share = () => {
         }
 
         try {
-            await axios.post("/posts", newPost);
+            await axios.post("https://aqueous-reef-25837.herokuapp.com/api/posts", newPost);
             window.location.reload();
         } catch (err) {
             console.log(err);

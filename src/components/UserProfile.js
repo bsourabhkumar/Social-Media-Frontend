@@ -29,7 +29,7 @@ const UserProfile = () => {
     
     useEffect(()=>{
         const fetchUser = async () => {
-            const res = await axios.get(`/users?username=${username}`);
+            const res = await axios.get(`https://aqueous-reef-25837.herokuapp.com/api/users?username=${username}`);
             setUser(res.data);
         };
         fetchUser();
@@ -56,7 +56,7 @@ const UserProfile = () => {
     useEffect(()=>{
         const getFriends = async () => {
             try {
-               const friendList = await axios.get("/users/friends/" + user._id);
+               const friendList = await axios.get("https://aqueous-reef-25837.herokuapp.com/api/users/friends/" + user._id);
                setFriends(friendList.data);
                dispatch({type: "UPDATE_FRIENDS", payload: friends});
             } catch (err) {
@@ -69,10 +69,10 @@ const UserProfile = () => {
     const handleFollow = async () => {
             try {
                 if(followed){
-                    await axios.put("/users/" + user._id + "/unfollow", {userId: currentUser._id})
+                    await axios.put("https://aqueous-reef-25837.herokuapp.com/api/users/" + user._id + "/unfollow", {userId: currentUser._id})
                     setFollowed(false);
                 }else{
-                    await axios.put("/users/" + user._id + "/follow", {userId: currentUser._id})
+                    await axios.put("https://aqueous-reef-25837.herokuapp.com/api/users/" + user._id + "/follow", {userId: currentUser._id})
                     setFollowed(true);
                 }
             } catch (err) {

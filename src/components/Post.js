@@ -42,7 +42,7 @@ const Post = (post) => {
     
     const handleLike = ()=>{
         try {
-            axios.put("/posts/" + post._id + "/like", {userId: currentUser._id})
+            axios.put("https://aqueous-reef-25837.herokuapp.com/api/posts/" + post._id + "/like", {userId: currentUser._id})
         } catch (err) {
             console.log(err);
         }
@@ -52,7 +52,7 @@ const Post = (post) => {
    
     useEffect(()=>{
         const fetchUser = async () => {
-            const res = await axios.get(`/users?userId=${post.userId}`)
+            const res = await axios.get(`https://aqueous-reef-25837.herokuapp.com/api/users?userId=${post.userId}`)
             setUser(res.data)
         };
         fetchUser();
@@ -62,7 +62,7 @@ const Post = (post) => {
 
     const handleEdit = async () => {
         
-        await axios.put("/posts/" + post._id, { userId: currentUser._id, 
+        await axios.put("https://aqueous-reef-25837.herokuapp.com/api/posts/" + post._id, { userId: currentUser._id, 
                                                 desc: desc.current.value,
                                                 img: post.img });
         window.location.reload();
@@ -71,7 +71,7 @@ const Post = (post) => {
         console.log(post.userId);
         console.log(currentUser._id);
         console.log(post._id)
-        await axios.delete(`/posts/${post._id}`, {userId: currentUser._id});
+        await axios.delete(`https://aqueous-reef-25837.herokuapp.com/api/posts/${post._id}`, {userId: currentUser._id});
         window.location.reload();
     }
 
